@@ -1,0 +1,6 @@
+@MizrahiTefahot_HostAddress = http://localhost:5120
+
+GET {{MizrahiTefahot_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zohar\\Desktop\\MizrahiTefahot\\MizrahiTefahot\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A00A4895-C1C0-4482-8B7C-F319AA422756}|MizrahiTefahot\\MizrahiTefahot.csproj|c:\\users\\zohar\\desktop\\mizrahitefahot\\mizrahitefahot\\mizrahitefahot\\controllers\\calculationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A00A4895-C1C0-4482-8B7C-F319AA422756}|MizrahiTefahot\\MizrahiTefahot.csproj|solutionrelative:mizrahitefahot\\controllers\\calculationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E751C308-D495-41EF-99AF-316711D12696}|Service\\Service.csproj|c:\\users\\zohar\\desktop\\mizrahitefahot\\mizrahitefahot\\service\\impi\\calculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E751C308-D495-41EF-99AF-316711D12696}|Service\\Service.csproj|solutionrelative:service\\impi\\calculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CalculationService.cs",
+              "DocumentMoniker": "C:\\Users\\zohar\\Desktop\\MizrahiTefahot\\MizrahiTefahot\\Service\\ImpI\\CalculationService.cs",
+              "RelativeDocumentMoniker": "Service\\ImpI\\CalculationService.cs",
+              "ToolTip": "C:\\Users\\zohar\\Desktop\\MizrahiTefahot\\MizrahiTefahot\\Service\\ImpI\\CalculationService.cs",
+              "RelativeToolTip": "Service\\ImpI\\CalculationService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwCMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T10:18:07.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CalculationController.cs",
+              "DocumentMoniker": "C:\\Users\\zohar\\Desktop\\MizrahiTefahot\\MizrahiTefahot\\MizrahiTefahot\\Controllers\\CalculationController.cs",
+              "RelativeDocumentMoniker": "MizrahiTefahot\\Controllers\\CalculationController.cs",
+              "ToolTip": "C:\\Users\\zohar\\Desktop\\MizrahiTefahot\\MizrahiTefahot\\MizrahiTefahot\\Controllers\\CalculationController.cs*",
+              "RelativeToolTip": "MizrahiTefahot\\Controllers\\CalculationController.cs*",
+              "ViewState": "AgIAABAAAAAAAAAAAAAmwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T10:14:45.298Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
