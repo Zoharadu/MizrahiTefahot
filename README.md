@@ -32,5 +32,4 @@
 3. Build and run the container:
 docker-compose up --build
 Once up, open your browser and navigate to:
-http://localhost:5000/swagger/index.html
-
+http://localhost:5005/index.html
