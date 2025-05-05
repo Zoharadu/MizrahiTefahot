@@ -1,0 +1,119 @@
+openapi: 3.0.1
+info:
+  title: Calculation API
+  version: v1
+  description: An API for performing calculations with JWT authentication
+
+servers:
+  - url: https://localhost:7084
+
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+
+    CalculationRequest:
+      type: object
+      properties:
+        number1:
+          type: number
+        number2:
+          type: number
+      required:
+        - number1
+        - number2
+
+security:
+  - Bearer: []
+
+paths:
+  /api/Calculation/login:
+    post:
+      summary: Authenticate and receive JWT token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: JWT token successfully generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '401':
+          description: Unauthorized - invalid credentials
+
+  /api/Calculation:
+    post:
+      summary: Perform a calculation based on the operator
+      tags:
+        - Calculation
+      security:
+        - Bearer: []
+      parameters:
+        - in: header
+          name: Operator
+          required: true
+          schema:
+            type: string
+          description: The operation to perform (add, subtract, multiply, divide)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalculationRequest'
+      responses:
+        '200':
+          description: Calculated result
+          content:
+            application/json:
+              schema:
+                type: number
+        '400':
+          description: Bad request (e.g., division by zero or missing operator)
+        '401':
+          description: Unauthorized - missing or invalid token
+        '500':
+          description: Internal server error
+
+  /api/Calculation/supported-operations:
+    get:
+      summary: Get a list of supported operations
+      tags:
+        - Calculation
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          description: List of supported operations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized - missing or invalid token

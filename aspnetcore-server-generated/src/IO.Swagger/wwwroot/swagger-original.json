@@ -1,0 +1,173 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Calculation API",
+    "description" : "An API for performing calculations with JWT authentication",
+    "version" : "v1"
+  },
+  "servers" : [ {
+    "url" : "https://4fd5-46-210-195-24.ngrok-free.app"
+  } ],
+  "security" : [ {
+    "Bearer" : [ ]
+  } ],
+  "paths" : {
+    "/api/Calculation/login" : {
+      "post" : {
+        "tags" : [ "Authentication" ],
+        "summary" : "Authenticate and receive JWT token",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/LoginRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "JWT token successfully generated",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TokenResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized - invalid credentials"
+          }
+        }
+      }
+    },
+    "/api/Calculation" : {
+      "post" : {
+        "tags" : [ "Calculation" ],
+        "summary" : "Perform a calculation based on the operator",
+        "parameters" : [ {
+          "name" : "Operator",
+          "in" : "header",
+          "description" : "The operation to perform (add, subtract, multiply, divide)",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CalculationRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Calculated result",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "number",
+                  "x-content-type" : "application/json"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request (e.g., division by zero or missing operator)"
+          },
+          "401" : {
+            "description" : "Unauthorized - missing or invalid token"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
+      }
+    },
+    "/api/Calculation/supported-operations" : {
+      "get" : {
+        "tags" : [ "Calculation" ],
+        "summary" : "Get a list of supported operations",
+        "responses" : {
+          "200" : {
+            "description" : "List of supported operations",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "string"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized - missing or invalid token"
+          }
+        },
+        "security" : [ {
+          "Bearer" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "LoginRequest" : {
+        "required" : [ "password", "username" ],
+        "type" : "object",
+        "properties" : {
+          "username" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TokenResponse" : {
+        "type" : "object",
+        "properties" : {
+          "token" : {
+            "type" : "string"
+          }
+        },
+        "example" : {
+          "token" : "token"
+        }
+      },
+      "CalculationRequest" : {
+        "required" : [ "number1", "number2" ],
+        "type" : "object",
+        "properties" : {
+          "number1" : {
+            "type" : "number"
+          },
+          "number2" : {
+            "type" : "number"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "Bearer" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}
